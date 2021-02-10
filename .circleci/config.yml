@@ -1,7 +1,7 @@
 version: 2.1
 
 references:
-  workspace_root: &workspace_root ~/workspace
+  workspace_root: &workspace_root ~/
 
 executors:
   nodejs:
