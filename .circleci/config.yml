@@ -1,0 +1,53 @@
+version: 2.1
+
+references:
+  workspace_root: &workspace_root ~/workspace
+
+executors:
+  nodejs:
+    docker:
+      - image: circleci/node:14
+
+jobs:
+  build:
+    executor: nodejs
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - restore_cache:
+          keys:
+            - v1-npm-{{ checksum "package.json" }}
+      - run: npm ci
+      - save_cache:
+          paths:
+            - ~/.npm
+          key: v1-npm-{{ checksum "package.json" }}
+      - run: npm run prepush
+      - store_artifacts:
+          path: coverage
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - project
+
+  publish:
+    executor: nodejs
+    working_directory: ~/project
+    steps:
+      - attach_workspace:
+          at: *workspace_root
+      - run: npm publish
+
+workflows:
+  commit:
+    jobs:
+      - build
+      - publish:
+          context: npm
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
+

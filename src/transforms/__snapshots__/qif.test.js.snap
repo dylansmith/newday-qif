@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transforms/qif #transformInput should return parsed records 1`] = `
+Array [
+  "D30/01/2021
+T-9.99
+PNOW TV A0323 SportsD
+MLondon GBR
+^",
+  "D31/01/2021
+T-50
+PUnited Utilities
+MFASTER PAYMENT GBR
+^",
+  "D27/01/2021
+T-25.15
+PJOHNLEWIS
+^",
+  "D25/01/2021
+T-10.5
+PTESCO STORE
+^",
+  "D24/01/2021
+T0
+PNO VALUE
+^",
+]
+`;
