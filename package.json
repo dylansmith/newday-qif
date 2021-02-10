@@ -1,6 +1,6 @@
 {
   "name": "newday-qif",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert NewDay (newday.co.uk) CSV statements to QIF",
   "main": "index.js",
   "bin": {
