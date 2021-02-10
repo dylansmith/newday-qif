@@ -1,0 +1,43 @@
+{
+  "name": "newday-qif",
+  "version": "1.0.0",
+  "description": "Convert NewDay (newday.co.uk) CSV statements to QIF",
+  "main": "index.js",
+  "bin": {
+    "newday_qif": "./bin/newday_qif"
+  },
+  "scripts": {
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "prepush": "npm run lint && npm t && npm audit",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylansmith/newday-qif.git"
+  },
+  "keywords": [
+    "newday",
+    "newdaycards",
+    "csv",
+    "qif",
+    "import",
+    "convert"
+  ],
+  "author": "Dylan Smith <dylansmith@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dylansmith/newday-qif/issues"
+  },
+  "homepage": "https://github.com/dylansmith/newday-qif#readme",
+  "dependencies": {
+    "csv": "^5.3.2",
+    "fs-extra": "^9.1.0",
+    "glob": "^7.1.6"
+  },
+  "devDependencies": {
+    "husky": "^4.3.8",
+    "jest": "^26.6.3",
+    "standard": "^16.0.3"
+  }
+}
