@@ -43,7 +43,8 @@ jobs:
 workflows:
   commit:
     jobs:
-      - build
+      - build:
+          context: npm
       - publish:
           context: npm
           requires:
